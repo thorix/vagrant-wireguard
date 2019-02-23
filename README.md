@@ -1,10 +1,10 @@
 # Vagrant with WireGuard
 
-WireGuard uses kernel level code that makes using Docker harder. In some cases it might make more sense to use a VM in the name of isolation and secuirty. This setup will create a VM using libviurt and install wiregaurd. Look in `provision.sh` to see what is being install in the VM.
+WireGuard uses kernel-level code that makes using Docker harder. In some cases, it might make more sense to use a VM in the name of isolation and security. This setup will create a VM using Libviurt and install Wiregaurd. Look in `provision.sh` to see what is being installed in the VM.
 
 # Host setup (before this VM can run)
 Before you can use this setup you will need vagrant [Vagrant](https://www.vagrantup.com/downloads.html)
-You will also need to install libvirt
+You will also need to install Libvirt
 ```
 sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils libguestfs-tools genisoimage virtinst libosinfo-bin
 sudo adduser $USER libvirt-qemu
@@ -13,7 +13,7 @@ vagrant plugin install vagrant-libvirt
 ```
 
 ## Setting up Bridge network
-Next you will need to have a bridge network interface so the VM can attach.
+Next, you will need to have a bridge network interface so the VM can attach.
 
 /etc/network/interfaces
 ```
@@ -30,7 +30,7 @@ iface br0 inet static
   bridge_stp on        # disable Spanning Tree Protocol
   bridge_waitport 0    # no delay before a port becomes available
   bridge_fd 0          # no forwarding delay
-``
+```
 
 ### do not query iptables for package routing
 One last trick you might need is to enable network traffic to enter the bridge interface for the VM
@@ -39,11 +39,11 @@ One last trick you might need is to enable network traffic to enter the bridge i
 echo 0 > /proc/sys/net/bridge/bridge-nf-call-iptables
 ```
 
-## Create configuration file
-BACKUP_SRC   location on server to mount
+## Create a configuration file
+BACKUP_SRC   location on the server to mount
 BACKUP_DEST  Location in the VM to mount BACKUP_SRC too
 BACKUP_USER  The user to add to the VM. Can be used for scp
-SSH_KEY      The ssh public key of given backup user
+SSH_KEY      The ssh public key of then given backup user
 
 vi .vars
 ```
