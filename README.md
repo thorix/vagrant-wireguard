@@ -1,6 +1,6 @@
 # Vagrant with WireGuard
 
-WireGuard uses kernel-level code that makes using Docker harder. In some cases, it might make more sense to use a VM in the name of isolation and security. This setup will create a VM using Libviurt and install Wiregaurd. Look in `provision.sh` to see what is being installed in the VM.
+WireGuard uses kernel-level code that makes using Docker harder. In some cases, it might make more sense to use a VM in the name of isolation and security. This setup will create a VM using Libvirt and install Wiregaurd. Look in `provision.sh` to see what is being installed in the VM.
 
 # Host setup (before this VM can run)
 Before you can use this setup you will need vagrant [Vagrant](https://www.vagrantup.com/downloads.html)
